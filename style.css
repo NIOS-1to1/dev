@@ -114,11 +114,7 @@
             border-radius: 50%;
             object-fit: cover;
         }
-           .profile-pic img{
-            width: 55px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+
 
         /* Message Notification */
         .message-notification {
