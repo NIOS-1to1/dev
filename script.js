@@ -89,3 +89,59 @@ setInterval(() => {
 }, 3000);
 
 showSlide(index);
+
+
+//Contact us sticky button 
+
+        const contactButton = document.getElementById('contactButton');
+        const contactMenu = document.getElementById('contactMenu');
+        const overlay = document.getElementById('overlay');
+        let isOpen = false;
+
+        contactButton.addEventListener('click', function() {
+            isOpen = !isOpen;
+            
+            if (isOpen) {
+                contactButton.classList.add('active');
+                contactMenu.classList.add('show');
+                overlay.classList.add('show');
+                contactButton.innerHTML = '✕';
+            } else {
+                closeMenu();
+            }
+        });
+
+        overlay.addEventListener('click', function() {
+            if (isOpen) {
+                closeMenu();
+            }
+        });
+
+        function closeMenu() {
+            isOpen = false;
+            contactButton.classList.remove('active');
+            contactMenu.classList.remove('show');
+            overlay.classList.remove('show');
+            contactButton.innerHTML = 'Contact Us';
+        }
+
+        function handleSocialClick(platform) {
+            // You can replace these with actual URLs to your social media pages
+            if (platform === 'discord') {
+                // Replace with your Discord server invite link
+                window.open('https://discordapp.com/users/1002799777915863070', '_blank');
+            } else if (platform === 'reddit') {
+                // Replace with your Reddit community link
+                window.open('https://reddit.com/r/your-subreddit', '_blank');
+            }
+            
+            // Close the menu after clicking
+            closeMenu();
+        }
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isOpen) {
+                closeMenu();
+            }
+        });
