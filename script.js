@@ -145,3 +145,71 @@ showSlide(index);
                 closeMenu();
             }
         });
+
+
+
+        // Elements
+        const wisdomButton = document.getElementById('wisdomButton');
+        const wisdomPopup = document.getElementById('wisdomPopup');
+        const closeBtn = document.getElementById('closeBtn');
+        const wisdomText = document.getElementById('wisdomText');
+        const playButton = document.getElementById('playButton');
+        const profilePic = document.getElementById('profilePic');
+        const myAudio = document.getElementById('master-oggways-audio');
+        const pauseButton = document.getElementById('pauseButton');
+        const messageNotification = document.getElementById('messageNotification');
+
+        // Toggle popup
+        function togglePopup() {
+            wisdomPopup.classList.toggle('active');
+            if (wisdomPopup.classList.contains('active')) {
+                // Hide the notification when popup opens
+                messageNotification.classList.add('hidden');
+                // Show random wisdom
+                const randomQuote = wisdomQuotes[Math.floor(Math.random() * wisdomQuotes.length)];
+                wisdomText.textContent = randomQuote;
+            }
+        }
+
+        // Event listeners
+        wisdomButton.addEventListener('click', togglePopup);
+        closeBtn.addEventListener('click', function() {
+            wisdomPopup.classList.remove('active');
+            // Don't show notification again after closing
+        });
+
+        // Play button
+        playButton.addEventListener('click', function() {
+            console.log('Play button clicked!');
+
+            if (myAudio.paused) {
+                myAudio.play();
+            } else {
+                myAudio.currentTime = 0;
+                myAudio.play();
+            }
+            
+            // Visual feedback
+            playButton.style.transform = 'scale(0.80)';
+            setTimeout(() => {
+                playButton.style.transform = 'scale(1)';
+            }, 150);
+        });
+
+        // Pause button
+        pauseButton.addEventListener('click', function () {
+            myAudio.pause();
+
+            // Visual feedback
+            pauseButton.style.transform = 'scale(0.80)';
+            setTimeout(() => {
+                pauseButton.style.transform = 'scale(1)';
+            }, 150);
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!wisdomPopup.contains(event.target) && !wisdomButton.contains(event.target)) {
+                wisdomPopup.classList.remove('active');
+            }
+        });
