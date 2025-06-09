@@ -129,10 +129,10 @@ showSlide(index);
             // You can replace these with actual URLs to your social media pages
             if (platform === 'discord') {
                 // Replace with your Discord server invite link
-                window.open('https://discordapp.com/users/1002799777915863070', '_blank');
+                window.open('https://discord.gg/CzcBvRanMz', '_blank');
             } else if (platform === 'reddit') {
                 // Replace with your Reddit community link
-                window.open('https://reddit.com/r/your-subreddit', '_blank');
+                window.open('https://www.reddit.com/user/KeyDifference4178/', '_blank');
             }
             
             // Close the menu after clicking
