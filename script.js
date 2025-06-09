@@ -45,7 +45,7 @@
             });
         }, observerOptions);
 
-        // Observe all content cards
+        //  all content cards
         document.querySelectorAll('.content-card, .feature-card, .review-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
@@ -126,12 +126,12 @@ showSlide(index);
         }
 
         function handleSocialClick(platform) {
-            // You can replace these with actual URLs to your social media pages
+            //   actual URLs to your social media pages
             if (platform === 'discord') {
-                // Replace with your Discord server invite link
+                //  Discord server invite link
                 window.open('https://discord.gg/CzcBvRanMz', '_blank');
             } else if (platform === 'reddit') {
-                // Replace with your Reddit community link
+                // Reddit community link
                 window.open('https://www.reddit.com/user/KeyDifference4178/', '_blank');
             }
             
